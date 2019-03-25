@@ -14,25 +14,28 @@ class Game {
     // playerTurn will only be only 1, 2, or 3
     this.playerTurn = 1;
 
-    //counter for when to fire nextRound method (after 16, when all clues have been )
+    //counter for when to fire nextRound method (after 16, when all clues have been found)
     this.roundTurn = 1;
 
     // Category Numbers for Rounds
     this.round1Categories = [1,2,4,6];
     this.round2Categories = [3,7,8,9];
     this.round3Categories = [10];
+    this.dataSet = dataSet.clues;
 
     // Create round 1
     this.currentRound = new Rounds(this.round1Categories);
-    this.currentRound.fetchClues(this.round1Categories);
+    this.currentRound.fetchClues(this.dataSet);
   }
 
   nextRound() {
-    this.counter++
-    if (counter == 2) {
-       this.round = new Round(this.round2Categories);
+    this.roundCounter++
+    if (this.roundCounter == 2) {
+       this.currentRound = new Round(this.round2Categories);
+       this.currentRound.roundTwoPoints(this.dataSet);
+       this.currentRound.fetchClues()
     } else {
-      this.round = new Round(this.round3Categories);
+      this.currentRound = new Round(this.round3Categories);
     }
   }
 

@@ -767,41 +767,54 @@
       ]
     };
 
-    const roundOne = [1,2,4,6];
+    // const roundOne = [1,2,4,6];
     const clueList = dataSet.clues;
+    //
+    //
+    // const categoryList = clueList.filter((currentClue) => {
+    //   return roundOne.indexOf(currentClue.categoryId) !== -1 ;
+    // });
+    //
+    // let topicOne = [];
+    // let topicTwo = [];
+    // let topicThree = [];
+    // let topicFour = [];
+    //
+    //
+    //
+    // categoryList.forEach((currentClue) => {
+    //   if (currentClue.categoryId === roundOne[0]) {
+    //     topicOne.push(currentClue)
+    //   } else if (currentClue.categoryId === roundOne[1]) {
+    //     topicTwo.push(currentClue)
+    //   } else if (currentClue.categoryId === roundOne[2]) {
+    //     topicThree.push(currentClue)
+    //   } else if (currentClue.categoryId === roundOne[3]) {
+    //     topicFour.push(currentClue)
+    //   }
+    // });
+    //
+    // const finalCatOne = new Set();
+    // const newCluesOne = topicOne.filter(clue => {
+    //     if (finalCatOne.has(clue.pointValue)) {
+    //         return false;
+    //     }
+    //     finalCatOne.add(clue.pointValue);
+    //     return true;
+    // });
 
 
-    const categoryList = clueList.filter((currentClue) => {
-      return roundOne.indexOf(currentClue.categoryId) !== -1 ;
+
+    const roundTwoSet = clueList.map((currentClue) => {
+      let doubleDataSet = {};
+      doubleDataSet.question = currentClue.question;
+      doubleDataSet.pointValue = currentClue.pointValue * 2;
+      doubleDataSet.answer = currentClue.answer;
+      doubleDataSet.categoryId = currentClue.categoryId;
+      return doubleDataSet;
     });
+    console.log('Round 2', roundTwoSet);
 
-    let topicOne = [];
-    let topicTwo = [];
-    let topicThree = [];
-    let topicFour = [];
-
-
-
-    categoryList.forEach((currentClue) => {
-      if (currentClue.categoryId === roundOne[0]) {
-        topicOne.push(currentClue)
-      } else if (currentClue.categoryId === roundOne[1]) {
-        topicTwo.push(currentClue)
-      } else if (currentClue.categoryId === roundOne[2]) {
-        topicThree.push(currentClue)
-      } else if (currentClue.categoryId === roundOne[3]) {
-        topicFour.push(currentClue)
-      }
-    });
-
-    const finalCatOne = new Set();
-    const newCluesOne = topicOne.filter(clue => {
-        if (finalCatOne.has(clue.pointValue)) {
-            return false;
-        }
-        finalCatOne.add(clue.pointValue);
-        return true;
-    });
 
     </script>
   </body>
