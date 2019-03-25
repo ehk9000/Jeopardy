@@ -38,18 +38,5 @@ var name3 = 'Sean';
 var newGame = new Game(name1, name2, name3);
 
 
-// newGame.currentRound.fetchClues;
-// console.log(newGame.currentRound.fetchClues(newGame.round1Categories));
-
-// newGame.nextRound()
-
-
-// const player1 = new Rounds(flatData, 'Erik');
-// console.log('Log 2: ', player1);
-
-// const player2 = new Rounds(gameStart, 'Aidan');
-// console.log('Log 3: ', player2);
-
-
 
 console.log('This is the JavaScript entry file - your code begins here.');

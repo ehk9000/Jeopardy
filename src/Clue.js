@@ -6,6 +6,7 @@ class Clue {
     this.pointValue = clue.pointValue;
     this.answer = clue.answer;
     this.categoryId = clue.categoryId;
+    this.dailyDouble = false;
   }
 
   checkAnswer() {

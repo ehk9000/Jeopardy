@@ -5,6 +5,7 @@ class DailyD extends Clue {
   constructor(clue) {
     super(clue);
 
+
   }
 }
 
