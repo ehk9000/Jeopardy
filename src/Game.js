@@ -32,7 +32,7 @@ class Game {
     this.roundCounter++
     if (this.roundCounter == 2) {
        this.currentRound = new Round(this.round2Categories);
-       this.currentRound.roundTwoPoints(this.dataSet);
+       this.currentRound.roundTwoPoints(this.dataSet™™);
        this.currentRound.fetchClues()
     } else {
       this.currentRound = new Round(this.round3Categories);
