@@ -4,7 +4,7 @@ import Clue from './Clue.js'
 class DailyD extends Clue {
   constructor(clue) {
     super(clue);
-
+    
 
   }
 }

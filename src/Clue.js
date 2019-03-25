@@ -1,4 +1,5 @@
 import Rounds from './Rounds.js'
+import Player from './Player.js'
 
 class Clue {
   constructor(clue) {
@@ -12,6 +13,9 @@ class Clue {
   checkAnswer() {
     //this.playerguess = playerinput.value
     // boolean of this.answer === this.playerguess
+    if (this.playerGuess === this.answer) {
+
+    }
   }
 }
 
