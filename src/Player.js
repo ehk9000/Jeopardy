@@ -7,9 +7,6 @@ class Player {
     this.playerId = playerId;
     this.playerDollarAmount = 0;
   }
-  checkAnswer(newScore) {
-        
-  }
 }
 
 export default Player;

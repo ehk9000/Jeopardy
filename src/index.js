@@ -26,15 +26,14 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 [dataCategories[2].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[6].toUpperCase()]];
-// $(document).ready(dataCategories);
 
 // dom manipulation to get values of the three names
 
-var name1 = $("#player-1").val;
-var name2 = $("#player-2").val;
-var name3 = $("#player-3").val;
+const $name1 = $("#player-1").val;
+const $name2 = $("#player-2").val;
+const $name3 = $("#player-3").val;
 
-var newGame = new Game(name1, name2, name3);
+var newGame = new Game($name1, $name2, $name3);
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -65,23 +64,11 @@ console.log('This is the JavaScript entry file - your code begins here.');
   } else {
     category = (newGame.currentRound.topicFour);
   }
-  findClueIndex(category, e);
-
+  newGame.findClueIndex(category, e);
   });
 
- function findClueIndex (category, e) {
-   if ($(e.target).is(".ind-0")) {
-    let currentClue = new Clue (category[0]);
-    console.log(currentClue);
-  } else if ($(e.target).is(".ind-1")) {
-    let currentClue = new Clue (category[1]);
-    console.log(currentClue);
-  } else if ($(e.target).is(".ind-2")) {
-    let currentClue = new Clue (category[2]);
-    console.log(currentClue);
-  } else {
-    let currentClue = new Clue(category[3]);
-    console.log(currentClue);
-  }
-
- }
+  $(document).on('click', ".answer-btn", "#user-answer", function(event) {
+    const $userAnswer = $("#user-answer").val()
+    event.preventDefault();
+    newGame.checkAnswer($userAnswer);
+  });
