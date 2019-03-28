@@ -27,32 +27,28 @@ let categoryArr = [[dataCategories[1].split(/(?=[A-Z])/).join(' ').toUpperCase()
 [dataCategories[4].split(/(?=[A-Z])/).join(' ').toUpperCase()],
 [dataCategories[6].toUpperCase()]];
 
-// dom manipulation to get values of the three names
+const $name1 = $("#player-1").val();
+const $name2 = $("#player-2").val();
+const $name3 = $("#player-3").val();
 
-const $name1 = $("#player-1").val;
-const $name2 = $("#player-2").val;
-const $name3 = $("#player-3").val;
-
-var newGame = new Game($name1, $name2, $name3);
-
-console.log('This is the JavaScript entry file - your code begins here.');
-
-
+const newGame = new Game($name1, $name2, $name3);
 
   $("#start-game").click(function() {
     event.preventDefault();
     domUpdates.publishCategories();
     domUpdates.publishRoundClues();
     domUpdates.publishScoreBoard();
+    domUpdates.publishPlayerNames();
+    $("#category-one").text(categoryArr[0]);
+    $("#category-two").text(categoryArr[1]);
+    $("#category-three").text(categoryArr[2]);
+    $("#category-four").text(categoryArr[3]);
     domUpdates.removeMe();
-    $('#category-one').text(categoryArr[0]);
-    $('#category-two').text(categoryArr[1]);
-    $('#category-three').text(categoryArr[2]);
-    $('#category-four').text(categoryArr[3]);
   });
 
-
-  $(".box-wrapper").on('click', function (e) {
+  $(document).on('click', '.clues', function (e) {
+    newGame.cluesRemaining--;
+    $(e.target).css('visibility', 'hidden');
     let category = [];
     if ($(e.target).is(".cat-1")) {
       category = (newGame.currentRound.topicOne);
@@ -64,11 +60,12 @@ console.log('This is the JavaScript entry file - your code begins here.');
   } else {
     category = (newGame.currentRound.topicFour);
   }
-  newGame.findClueIndex(category, e);
+    console.log(newGame.cluesRemaining);
+    newGame.findClueIndex(category, e);
   });
 
   $(document).on('click', ".answer-btn", "#user-answer", function(event) {
-    const $userAnswer = $("#user-answer").val()
+    const $userAnswer = $("#user-answer").val();
     event.preventDefault();
     newGame.checkAnswer($userAnswer);
   });

@@ -1,5 +1,4 @@
 import dataSet from './dataSet.js'
-
 import Game from './Game.js'
 import domUpdates from './domUpdates.js'
 
@@ -13,7 +12,11 @@ class Rounds {
     this.topicFour = [];
   }
 
+<<<<<<< HEAD
   roundTwoPoints(dataSet) {
+=======
+  roundTwoPoints() {
+>>>>>>> Clue-Dom
     const roundTwoSet = dataSet.map((currentClue) => {
       let doubleDataSet = {};
       doubleDataSet.question = currentClue.question;
@@ -23,7 +26,10 @@ class Rounds {
       return doubleDataSet;
     });
     this.fetchClues(roundTwoSet)
+<<<<<<< HEAD
 
+=======
+>>>>>>> Clue-Dom
   }
 
   uniquePoints(currentTopic, num) {
@@ -52,7 +58,6 @@ class Rounds {
 
       return  this.categoryIds.indexOf(currentClue.categoryId) !== -1;
     });
-
 
     categoryList.forEach((currentClue) => {
       if (currentClue.categoryId === this.categoryIds[0]) {
