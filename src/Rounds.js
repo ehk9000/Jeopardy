@@ -13,8 +13,17 @@ class Rounds {
     this.topicFour = [];
   }
 
-  roundTwoPoints() {
-    this.pointValue * 2;
+  roundTwoPoints(dataSet) {
+    const roundTwoSet = dataSet.map((currentClue) => {
+      let doubleDataSet = {};
+      doubleDataSet.question = currentClue.question;
+      doubleDataSet.pointValue = currentClue.pointValue * 2;
+      doubleDataSet.answer = currentClue.answer;
+      doubleDataSet.categoryId = currentClue.categoryId;
+      return doubleDataSet;
+    });
+    this.fetchClues(roundTwoSet)
+
   }
 
   uniquePoints(currentTopic, num) {
@@ -37,11 +46,17 @@ class Rounds {
     }
   }
 
+<<<<<<< HEAD
   fetchClues() {
     const clueList = dataSet.clues;
     const categoryList = clueList.filter((currentClue) => {
 
       return  this.categoryIds.indexOf(currentClue.categoryId) !== -1;
+=======
+  fetchClues(dataSet) {
+    const categoryList = dataSet.filter((currentClue) => {
+      return this.categoryIds.indexOf(currentClue.categoryId) !== -1 ;
+>>>>>>> round-two
     });
 
 

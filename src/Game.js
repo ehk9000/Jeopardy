@@ -19,16 +19,27 @@ class Game {
     this.playerAnswer = '';
     // Round counter
     this.roundCounter = 1;
+<<<<<<< HEAD
     //counter for when to fire nextRound method (after 16, when all clues have been )
     this.turnCount = 1;
+=======
+
+    // playerTurn will only be only 1, 2, or 3
+    this.playerTurn = 1;
+
+    //counter for when to fire nextRound method (after 16, when all clues have been found)
+    this.roundTurn = 1;
+>>>>>>> round-two
 
     // Category Numbers for Rounds
     this.round1Categories = [1,2,4,6];
     this.round2Categories = [3,7,8,9];
     this.round3Categories = [10];
+    this.dataSet = dataSet.clues;
 
     // Create round 1
     this.currentRound = new Rounds(this.round1Categories);
+<<<<<<< HEAD
     this.currentRound.fetchClues();
   }
 
@@ -72,6 +83,19 @@ class Game {
     this.currentPlayerNumber++
     if (this.currentPlayerNumber === 4) {
       this.currentPlayerNumber = 1;
+=======
+    this.currentRound.fetchClues(this.dataSet);
+  }
+
+  nextRound() {
+    this.roundCounter++
+    if (this.roundCounter == 2) {
+       this.currentRound = new Round(this.round2Categories);
+       this.currentRound.roundTwoPoints(this.dataSet);
+       this.currentRound.fetchClues()
+    } else {
+      this.currentRound = new Round(this.round3Categories);
+>>>>>>> round-two
     }
   }
 
