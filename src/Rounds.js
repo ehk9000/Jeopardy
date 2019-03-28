@@ -46,17 +46,11 @@ class Rounds {
     }
   }
 
-<<<<<<< HEAD
   fetchClues() {
     const clueList = dataSet.clues;
     const categoryList = clueList.filter((currentClue) => {
 
       return  this.categoryIds.indexOf(currentClue.categoryId) !== -1;
-=======
-  fetchClues(dataSet) {
-    const categoryList = dataSet.filter((currentClue) => {
-      return this.categoryIds.indexOf(currentClue.categoryId) !== -1 ;
->>>>>>> round-two
     });
 
 
