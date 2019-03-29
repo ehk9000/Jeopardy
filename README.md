@@ -24,6 +24,11 @@ well as jQuery and Webpacks.
   * Open http://localhost:8080 in your browser
 * Run ```npm test```  from root directory for testing
 
+
+## DTR
+
+https://gist.github.com/ehk9000/ba912a326c28268972f0954bb884bdf5
+
 ## Contributors
 * Erik Konner https://github.com/ehk9000
 * Aidan McKay https://github.com/JellyBeans1312
